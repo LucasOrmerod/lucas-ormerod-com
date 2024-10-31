@@ -1,7 +1,5 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+	import LinkedInLogo from "../lib/images/LinkedIn_logo_initials.webp";
 </script>
 
 <svelte:head>
@@ -9,27 +7,27 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+<main>
+	<div class="button-container">
+		<a href="https://github.com/LucasOrmerod" target="_blank" class="button github" aria-label="GitHub">
+			<svg id="github-logo-svg" class="logo-svg" width="98" height="96" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/></svg>
+		</a>
+		<!--<a href="https://youtube.com" target="_blank" class="button youtube">YouTube</a>-->
+		<a href="https://x.com/LucasOrmerod_" target="_blank" class="button x" aria-label="X">
+			<svg id="x-logo-svg" class="logo-svg" width="1200" height="1227" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+			</svg>
+		</a>
+		<!--<a href="https://instagram.com" target="_blank" class="button instagram">Instagram</a>-->
+		<!--<a href="https://tiktok.com" target="_blank" class="button tiktok">TikTok</a>-->
+		<a href="https://www.linkedin.com/in/lucasormerod/" target="_blank" class="button linkedin" aria-label="LinkedIn">
+			<img src={LinkedInLogo} id="linkedin-logo" alt="LinkedIn">
+		</a>
+	</div>
+</main>
 
 <style>
-	section {
+	main {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -39,21 +37,48 @@
 
 	h1 {
 		width: 100%;
+		text-align: center;
+		margin-bottom: 20px;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.button-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.button {
+		width: 100px; /* Set width for square buttons */
+		height: 100px; /* Set height for square buttons */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+		color: white; /* Text color */
+		text-decoration: none;
+		font-size: 16px;
+		border-radius: 8px;
+		transition: opacity 0.2s ease;
+	}
+
+	.github { background-color: #333; }
+	.youtube { background-color: #FF0000; }
+	.x { background-color: #1DA1F2; }
+	.instagram { background-color: #E1306C; }
+	.tiktok { background-color: #69C9D0; }
+	.linkedin { background-color: #FFFFFF; }
+
+	.button:hover {
+		opacity: 0.8; /* Slight transparency on hover */
+	}
+
+	.logo-svg {
+		transform: scale(0.75);
+		transform-origin: center;
+	}
+
+	#linkedin-logo {
+		transform: scale(0.14);
+		transform-origin: center;
 	}
 </style>
